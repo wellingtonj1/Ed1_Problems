@@ -9,7 +9,6 @@ class Livro
 	string titulo,iobn,autor;
 	
 	public:
-	
 	void settitulo(string x)
 	{
 		strcpy(titulo,x);
