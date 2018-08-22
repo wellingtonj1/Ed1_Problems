@@ -1,4 +1,7 @@
 #include <bits/stdc++.h>
+#include <string>
+
+using namespace std;
 
 class Livro
 {
@@ -95,13 +98,13 @@ class TestaPilha
 		string entra;
 		puts("Titulo");
 		getline(cin,entra);
-		x.settitulo(entra);
+		x->settitulo(entra);
 		puts("IOBN");
 		getline(cin,entra);
-		aux.setiobn(entra);
+		x->setiobn(entra);
 		puts("Autor");
-		getline(cin,entra):
-		x.setautor(entra);
+		getline(cin,entra);
+		x->setautor(entra);
 		
 		return x;
 		
