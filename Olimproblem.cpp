@@ -165,7 +165,7 @@ class TestaPilha
 					puts("Sucesso");
 					else
 					{
-						cout<< aux;
+						imprimepilha();
 						delete aux;
 						aux=0;						
 					}
@@ -201,10 +201,7 @@ class TestaPilha
 			cout<< mostra->getiobn() << mostra->gettitulo()<< mostra->getautor() <<endl;
 			aux.push(mostra);		
 		}
-		while(!aux.vazia())
-		{
-			obj.push(aux.pop);
-		}
+		
 	}
 	
 	
