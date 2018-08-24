@@ -8,27 +8,35 @@ class Livro
 	private:
 	string titulo,iobn,autor;
 	
-	public:
-	void settitulo(string x)
-	{
-		strcpy(titulo,x);
-	}
-	
+	public:	
 	string gettitulo()
 	{
 		return titulo;
 	}
 	
+	string getiobn()
+	{
+		return iobn;
+	}
+	
+	string getautor()
+	{
+		return iobn;
+	}
+	
 	void setiobn(string x)
 	{
-		strcpy(iobn,x);
+		iobn=x;
 	}
 	
 	void setautor(string x)
 	{
-		strcpy(autor,x);
+		autor=x;
 	}
-
+	void settitulo(string x)
+	{
+		titulo=x;
+	}
 };
 
 class Pilha
@@ -49,7 +57,7 @@ class Pilha
 		}
 		return false;
 	}
-	
+
 	int gettam()
 	{
 		return tam;
@@ -72,7 +80,7 @@ class Pilha
 	
 	bool vazia()
 	{
-		return (tam==0);
+		return (topo==0);
 	}
 	Livro* pop()
 	{
@@ -96,13 +104,13 @@ class TestaPilha
 		Livro* x=new Livro;
 		string entra;
 		puts("Titulo");
-		getline(cin,entra);
+		cin>>entra;
 		x->settitulo(entra);
 		puts("IOBN");
-		getline(cin,entra);
+		cin>>entra;
 		x->setiobn(entra);
 		puts("Autor");
-		getline(cin,entra);
+		cin>>entra;
 		x->setautor(entra);
 		
 		return x;
@@ -111,13 +119,100 @@ class TestaPilha
 	
 	void menu()
 	{
-	
+		Livro* aux=0;
+		int t,op=0;
+		bool ok=false; 	 	
+		do
+		{
+			cout<<"tamanho da pilha (>2) : ";
+			cin>>t;			
+		}while(!obj.settam(t));
+		
+		do
+		{
+			do
+			{
+				puts("Digito: ");
+				puts("1- Para inserir Livro na Pilha ");
+				puts("2- Para remover Livro da Pilha ");
+				puts("3- Mostrar pilha ");
+				puts("4- Para terminar ");
+				cin>>op;			
+			}while(op<1||op>4);
+			
+			switch(op)
+			{
+				case 1:
+				{
+					aux=crialivro();
+					ok=obj.push(aux);
+					if(ok)
+					{
+						puts("Sucesso");
+					}
+					else 
+					{
+						puts("Insucesso");
+					}
+					aux=0;
+					break;
+				}
+				
+				case 2:
+				{
+					aux=obj.pop();
+					if(aux==0)
+					puts("Sucesso");
+					else
+					{
+						cout<< aux;
+						delete aux;
+						aux=0;						
+					}
+					break;
+				
+				}
+				
+				case 3:
+				{
+					imprimepilha();
+					break;
+				}
+				
+				case 4:
+				{
+					puts("Programa encerrado ");
+					break;
+				}
+			}			
+		}while(op!=4);	
 	}
 	
 	void imprimepilha()
 	{
+		Pilha aux;
+		int t=obj.gettam();
+		aux.settam(t);
+		Livro* mostra=0;
 		
+		while(!obj.vazia())
+		{
+			mostra=obj.pop();
+			cout<< mostra->getiobn() << mostra->gettitulo()<< mostra->getautor() <<endl;
+			aux.push(mostra);		
+		}
+		while(!aux.vazia())
+		{
+			obj.push(aux.pop);
+		}
 	}
 	
 	
 };
+
+int main()
+{
+		TestaPilha object;
+		object.menu();
+		return 0;
+}
