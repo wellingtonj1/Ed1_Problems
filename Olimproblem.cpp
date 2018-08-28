@@ -103,14 +103,17 @@ class TestaPilha
 	{
 		Livro* x=new Livro;
 		string entra;
-		puts("Titulo");
-		cin>>entra;
+		puts("\nTitulo");
+		cin.ignore();
+		getline(cin,entra);
 		x->settitulo(entra);
-		puts("IOBN");
-		cin>>entra;
+		puts("\nIOBN");
+		cin.ignore();
+		getline(cin,entra);
 		x->setiobn(entra);
-		puts("Autor");
-		cin>>entra;
+		puts("\nAutor");
+		cin.ignore();
+		getline(cin,entra);
 		x->setautor(entra);
 		
 		return x;
@@ -124,7 +127,7 @@ class TestaPilha
 		bool ok=false; 	 	
 		do
 		{
-			cout<<"tamanho da pilha (>2) : ";
+			puts("tamanho da pilha (>2) : ");
 			cin>>t;			
 		}while(!obj.settam(t));
 		
@@ -136,7 +139,8 @@ class TestaPilha
 				puts("1- Para inserir Livro na Pilha ");
 				puts("2- Para remover Livro da Pilha ");
 				puts("3- Mostrar pilha ");
-				puts("4- Para terminar ");
+				puts("4- Para terminar \n");
+				printf("Sua escolha [  ] \b\b\b\b");
 				cin>>op;			
 			}while(op<1||op>4);
 			
@@ -148,11 +152,11 @@ class TestaPilha
 					ok=obj.push(aux);
 					if(ok)
 					{
-						puts("Sucesso");
+						puts("\nSucesso\n");
 					}
 					else 
 					{
-						puts("Insucesso");
+						puts("\nInsucesso\n");
 					}
 					aux=0;
 					break;
@@ -162,7 +166,7 @@ class TestaPilha
 				{
 					aux=obj.pop();
 					if(aux==0)
-					puts("Sucesso");
+					puts("\nSucesso\n");
 					else
 					{
 						imprimepilha();
@@ -181,7 +185,7 @@ class TestaPilha
 				
 				case 4:
 				{
-					puts("Programa encerrado ");
+					puts("----------------Programa encerrado---------------- ");
 					break;
 				}
 			}			
@@ -198,7 +202,7 @@ class TestaPilha
 		while(!obj.vazia())
 		{
 			mostra=obj.pop();
-			cout<< mostra->getiobn() << mostra->gettitulo()<< mostra->getautor() <<endl;
+			cout<< mostra->gettitulo() << mostra->getiobn() << mostra->getautor() <<endl;
 			aux.push(mostra);		
 		}
 		
