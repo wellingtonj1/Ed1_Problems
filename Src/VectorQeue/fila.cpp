@@ -5,23 +5,44 @@ fila::fila()
     init=-1;
     final=tamanho=0;
 }
-bool settam(int x)
+bool fila::settam(int x)
 {
-    if()
+    if(x>0)
+    {
+        vetor=new pessoa[x];
+        puts("\nTamanho setado com sucesso!\n")
+        return true;
+    }
+    else
+    {
+        puts("\nTamanho não setado!\n")
+        return false;
 }
-int gettam(int)
+int fila::gettam()
+{
+    return tamanho;
+}
+bool fila::enfileirar(pessoa*)
+{
+    if(bool vazia())
+    {
+        vetor=pessoa;
+    }
+}
+pessoa* fila::desenfileirar()
 {
 
 }
-bool enfileirar(pessoa*)
+bool fila::vazia()
 {
-
-}
-pessoa* desenfileirar()
-{
-
-}
-bool vazia()
-{
-
+    if(init!=tamanho)
+    {
+        puts("\nPilha vazia!\n")
+        return true;
+    }
+    else
+    {
+        puts("\nPilha cheia!\n")
+        return false;
+    }
 }

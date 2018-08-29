@@ -6,17 +6,17 @@ pessoa::pessoa()
     peso=0;
 }
 
-void pessoa::setnome(string x)
+void pessoa::setnome(QString x)
 {
     nome=x;
 }
 
-void pessoa::settelefone(string x)
+void pessoa::settelefone(QString x)
 {
     telefone=x;
 }
 
-void pessoa::setende(string x)
+void pessoa::setende(QString x)
 {
     ende=x;
 }
@@ -39,20 +39,24 @@ bool pessoa::setpeso(float ps)
         peso=ps;
         return true;
     }
+    else
+    {
+        return false;
+    }
 }
 
-string pessoa::getnome()
+QString pessoa::getnome()
 {
     return nome;
 }
 
-string pessoa::gettelefone()
+QString pessoa::gettelefone()
 {
     return telefone;
 
 }
 
-string pessoa::getende()
+QString pessoa::getende()
 {
     return ende;
 }
@@ -62,7 +66,7 @@ int pessoa::getidade()
     return idade;
 }
 
-float pessoa::getpeso()
+float  pessoa::getpeso()
 {
     return peso;
 }
