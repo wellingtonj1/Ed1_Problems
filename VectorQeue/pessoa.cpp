@@ -6,17 +6,17 @@ pessoa::pessoa()
     peso=0;
 }
 
-void pessoa::setnome(QString x)
+void pessoa::setnome(string x)
 {
     nome=x;
 }
 
-void pessoa::settelefone(QString x)
+void pessoa::settelefone(string x)
 {
     telefone=x;
 }
 
-void pessoa::setende(QString x)
+void pessoa::setende(string x)
 {
     ende=x;
 }
@@ -45,18 +45,18 @@ bool pessoa::setpeso(float ps)
     }
 }
 
-QString pessoa::getnome()
+string pessoa::getnome()
 {
     return nome;
 }
 
-QString pessoa::gettelefone()
+string pessoa::gettelefone()
 {
     return telefone;
 
 }
 
-QString pessoa::getende()
+string pessoa::getende()
 {
     return ende;
 }

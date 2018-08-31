@@ -3,6 +3,7 @@
 #include "pessoa.h"
 #include "fila.h"
 #include <iostream>
+#include <string>
 
 class testapilha
 {
@@ -11,11 +12,10 @@ class testapilha
         fila bijeto;
 
     public:
-
+        pessoa aluno;
         testapilha();
-        void menu();
+        int menu();
         pessoa* criaaluno();
-        void mostrafila();
         void mostraaluno();
 
 };

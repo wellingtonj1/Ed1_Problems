@@ -1,12 +1,13 @@
 #ifndef PESSOA_H
 #define PESSOA_H
-#include <QString>
+#include <string>
 
+using namespace std;
 class pessoa
 {
     private:
 
-        QString nome,telefone,ende;
+        string nome,telefone,ende;
         int idade;
         float peso;
 
@@ -15,15 +16,15 @@ class pessoa
     public:
 
     pessoa();
-    void setnome(QString);
-    void settelefone(QString);
-    void setende(QString);
+    void setnome(string);
+    void settelefone(string);
+    void setende(string);
     bool setidade(int);
     bool setpeso(float);
 
-    QString getnome();
-    QString gettelefone();
-    QString getende();
+    string getnome();
+    string gettelefone();
+    string getende();
     int getidade();
     float getpeso();
 

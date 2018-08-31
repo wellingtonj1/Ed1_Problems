@@ -1,5 +1,4 @@
 #include "testapilha.h"
-#include <iostream>
 
 using namespace std;
 
@@ -8,30 +7,32 @@ testapilha::testapilha()
 
 }
 
-void testapilha::menu()
+int testapilha::menu()
 {
     int escolha;
+    int tamain;
+    puts("\n DIGITE O TAMANHO DO VETOR : ");
+    cin>>tamain;
+    bijeto.settam(tamain);
     do
     {
-        int tamain;
-        puts("\n DIGITE O TAMANHO DO VETOR : ");
-        cin>>tamain;
         puts("1-Digite para enfileirar");
         puts("2-Digite para desenfileirar");
-        puts("3-Para sair do programa");
-        puts("4-Para mostrar o ultimo elemento inserido!");
+        puts("3-Para mostrar o ultimo elemento inserido!");
+        puts("4-Para sair do programa");
         printf("Sua escolha [  ] \b\b\b\b");
         cin>>escolha;
 
         switch (escolha){
             case 1:
             {
+                bijeto.enfileirar(criaaluno());
 
                 break;
             }
             case 2:
             {
-
+                bijeto.desenfileirar();
                 break;
             }
             case 3:
@@ -41,21 +42,23 @@ void testapilha::menu()
             }
             case 4:
             {
+                return 0;
                 break;
             }
             default:
             {
-                   puts("\nDigite um numero valido!!\n");
+                puts("\nDigite um numero valido!!\n");
                 break;
             }
         }
     }while(escolha!=4);
+
+
 }
 
 pessoa* testapilha::criaaluno()
 {
-    pessoa aluno;
-    QString auxs;
+    string auxs;
     int numaux;
     float nunsaux;
     puts("\nDigite o nome da pessoa : ");
@@ -87,12 +90,8 @@ pessoa* testapilha::criaaluno()
 
 void testapilha::mostraaluno()
 {
-        cout<<"O nome da pessoa : "<<aluno.getnome <<"\n O telefone da pessoa : "<<aluno.gettelefone
-        <<"\nO endereço da pessoa : "<<aluno.getende<<"\nA idade da pessoa : "<<aluno.getidade
-        <<"\nO peso da pessoa : "<<aluno.getpeso<<endl;
+        cout<<"O nome da pessoa : "<<aluno.getnome() <<"\n O telefone da pessoa : "<<aluno.gettelefone()
+        <<"\nO endereço da pessoa : "<<aluno.getende()<<"\nA idade da pessoa : "<<aluno.getidade()
+        <<"\nO peso da pessoa : "<<aluno.getpeso()<<endl;
 }
 
-void testapilha::mostrafila()
-{
-
-}
