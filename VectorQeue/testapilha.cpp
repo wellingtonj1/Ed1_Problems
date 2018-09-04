@@ -7,13 +7,14 @@ testapilha::testapilha()
 
 }
 
-int testapilha::menu()
+void testapilha::menu()
 {
     int escolha;
     int tamain;
     puts("\n DIGITE O TAMANHO DO VETOR : ");
     cin>>tamain;
     bijeto.settam(tamain);
+
     do
     {
         puts("1-Digite para enfileirar");
@@ -32,17 +33,16 @@ int testapilha::menu()
             }
             case 2:
             {
-                bijeto.desenfileirar();
+                mostraaluno(*bijeto.desenfileirar());
                 break;
             }
             case 3:
             {
-
+                mostraaluno(aluno);
                 break;
             }
             case 4:
             {
-                return 0;
                 break;
             }
             default:
@@ -52,7 +52,6 @@ int testapilha::menu()
             }
         }
     }while(escolha!=4);
-
 
 }
 
@@ -66,21 +65,23 @@ pessoa* testapilha::criaaluno()
     getline(cin,auxs);
     aluno.setnome(auxs);
 
-    puts("\nDigite o telefone da pessoa : ");
-    cin.ignore();
-    getline(cin,auxs);
-    aluno.settelefone(auxs);
-
     puts("\nDigite o endereço da pessoa : ");
     cin.ignore();
     getline(cin,auxs);
     aluno.setende(auxs);
 
+    puts("\nDigite o telefone da pessoa : ");
+    cin.ignore();
+    cin>>numaux;
+    aluno.settelefone(numaux);
+
     puts("\nDigite a idade da pessoa : ");
+    cin.ignore();
     cin>>numaux;
     aluno.setidade(numaux);
 
     puts("\nDigite o peso da pessoa : ");
+    cin.ignore();
     cin>>nunsaux;
     aluno.setpeso(nunsaux);
 
@@ -88,10 +89,11 @@ pessoa* testapilha::criaaluno()
 
 }
 
-void testapilha::mostraaluno()
+void testapilha::mostraaluno(pessoa x)
 {
-        cout<<"O nome da pessoa : "<<aluno.getnome() <<"\n O telefone da pessoa : "<<aluno.gettelefone()
-        <<"\nO endereço da pessoa : "<<aluno.getende()<<"\nA idade da pessoa : "<<aluno.getidade()
-        <<"\nO peso da pessoa : "<<aluno.getpeso()<<endl;
+        cout<<"\nO nome da pessoa : "<<x.getnome() <<"\nO endereço da pessoa : "<<x.getende()
+        <<"\n O telefone da pessoa : "<<x.gettelefone()
+        <<"\nA idade da pessoa : "<<x.getidade()
+        <<"\nO peso da pessoa : "<<x.getpeso()<<endl;
 }
 

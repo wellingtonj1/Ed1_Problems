@@ -4,10 +4,10 @@
 #include "pessoa.h"
 #include "testapilha.h"
 
-int main(int argc, char *argv[])
+int main()
 {
-    QCoreApplication a(argc, argv);
     testapilha p;
+    p.menu();
 
-    return  p.menu();
+
 }

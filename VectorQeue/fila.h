@@ -17,7 +17,7 @@ class fila
         bool settam(int);
         int gettam();
         bool enfileirar(pessoa*);
-        void desenfileirar();
+        pessoa* desenfileirar();
         bool vazia();
         pessoa* atual();
 };

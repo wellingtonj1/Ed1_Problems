@@ -14,9 +14,9 @@ class testapilha
     public:
         pessoa aluno;
         testapilha();
-        int menu();
+        void menu();
         pessoa* criaaluno();
-        void mostraaluno();
+        void mostraaluno(pessoa);
 
 };
 

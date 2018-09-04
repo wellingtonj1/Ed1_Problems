@@ -11,7 +11,7 @@ void pessoa::setnome(string x)
     nome=x;
 }
 
-void pessoa::settelefone(string x)
+void pessoa::settelefone(int x)
 {
     telefone=x;
 }
@@ -50,7 +50,7 @@ string pessoa::getnome()
     return nome;
 }
 
-string pessoa::gettelefone()
+int pessoa::gettelefone()
 {
     return telefone;
 

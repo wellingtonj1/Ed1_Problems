@@ -7,8 +7,8 @@ class pessoa
 {
     private:
 
-        string nome,telefone,ende;
-        int idade;
+        string nome,ende;
+        int idade,telefone;
         float peso;
 
 
@@ -17,13 +17,13 @@ class pessoa
 
     pessoa();
     void setnome(string);
-    void settelefone(string);
+    void settelefone(int);
     void setende(string);
     bool setidade(int);
     bool setpeso(float);
 
     string getnome();
-    string gettelefone();
+    int gettelefone();
     string getende();
     int getidade();
     float getpeso();

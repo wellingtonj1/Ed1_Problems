@@ -4,21 +4,21 @@ using namespace std;
 
 fila::fila()
 {
-    init=final=tamanho=0;
+    init=tamanho=0;
+    final=-1;
 }
 bool fila::settam(int x)
 {
     if(x>0)
     {
-        *vetor=new pessoa[x];
-        tamanho=x;
         puts("\nTamanho setado com sucesso!\n");
+        tamanho=x;
+        vetor=new pessoa*[x];
         return true;
     }
     else
     {
         puts("\nTamanho não setado!\n");
-
         return false;
     }
 }
@@ -32,34 +32,39 @@ bool fila::enfileirar(pessoa* x)
 {
     if(vazia())
     {
-        puts("\nsucesso\n");
-        *(vetor+final)=x;
+        puts("\nSucesso\n");
         final++;
+        *(vetor+final)=x;
         return true;
     }
     else
     {
+        puts("\nInsucesso\n");
         return false;
     }
 }
-void fila::desenfileirar()
+pessoa* fila::desenfileirar()
 {
-    if(!vazia())
+    if(final>=0)
     {
-        cout<<*(vetor+0);
-        for(int i=0;i<final-1;i++)
+        pessoa* aux;
+        aux=vetor[0];
+        for(int i=0;i<final;i++)
         {
             *(vetor+i)=*(vetor+i+1);
         }
+        final--;
+        return aux;
     }
     else
     {
         puts("Pilha vazia!");
+        return nullptr;
     }
 }
 bool fila::vazia()
 {
-    if(final!=tamanho)
+    if(final<tamanho)
     {
         return true;
     }
@@ -77,6 +82,6 @@ pessoa* fila::atual()
     }
     else
     {
-        return 0;
+        return nullptr;
     }
 }
